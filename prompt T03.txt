@@ -1,0 +1,26 @@
+LUCAS PARDEDE - 12S24015 - SISTEM INFORMASI
+
+CHATGPT
+
+1. Buatlah sebuah sistem yang dapat mendukung operasional sehari-hari di Laundry Del. menggunakan bahasa java dimana nama filenya Driver3.java dan Solution3.java
+modul tersebut sebagai buku panduan dan di dalam modul tersebut terdapat target system dari laundry del, buatkan programnya
+
+2. boleh boleh, terus buatkan inputan dan output contohnya
+
+3. coba jelaskan dulu alur program java tersebut lalu ada fitur apa aja
+
+4. coba kirim ulang codenya dengan lebih rapi jelas terstruktur dan alur sistemnya itu jelas
+
+5. C:\Users\ASUS\OneDrive\문서\GitHub\quiz1-pbo-LucasPardede>java -cp bin driver.Driver3
+Error: Could not find or load main class driver.Driver3
+Caused by: java.lang.ClassNotFoundException: driver.Driver3
+
+C:\Users\ASUS\OneDrive\문서\GitHub\quiz1-pbo-LucasPardede>cd bin && java Driver3
+Error: Main method not found in class Driver3, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+
+
+cara run
+

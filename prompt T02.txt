@@ -1,0 +1,86 @@
+LUCAS PARDEDE - 12S24015 - SISTEM INFORMASI
+
+Gemini
+
+1. buatlah code java dengan nama filenya itu Driver2.java dan Solution2.java
+
+dimana clue untuk soal tersebut berhubungan dengan deret dimana pola nya itu selalu kurang 10 dan tambah 15 terus polanya selalu cewek cowok
+
+CHATGPT
+
+1. kerjakan T02 berikut dengan code java nama filenya Driver2.java dan Solution2.java
+
+clue buatlah code java dengan nama filenya itu Driver2.java dan Solution2.java
+
+dimana clue untuk soal tersebut berhubungan dengan deret dimana pola nya itu selalu kurang 10 dan tambah 15 terus polanya selalu cewek cowok
+
+2. ini sebagai referensi
+import java.util.Scanner;
+
+public class Driver2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 1. Membaca jumlah total data (N)
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+
+        // 2. Membaca deret nilai (n1, n2, ..., nN)
+        int[] values = new int[n];
+        for (int i = 0; i < n; i++) {
+            values[i] = sc.nextInt();
+        }
+
+        // Membersihkan buffer scanner
+        sc.nextLine();
+
+        // 3. Membaca kode kelompok (Cewek atau Cowok)
+        if (!sc.hasNextLine()) return;
+        String groupCode = sc.nextLine().trim();
+
+        // Inisialisasi Solution2 dan hitung total
+        Solution2 sol = new Solution2();
+        int result = sol.calculateTotal(n, values, groupCode);
+
+        // Cetak hasil akhir
+        System.out.println(result);
+
+        sc.close();
+    }
+}
+
+public class Solution2 {
+    /**
+     * Metode untuk menghitung total nilai berdasarkan kelompok.
+     * Pola: 
+     * - Indeks 0, 2, 4... (Genap) = Cewek (Yohana, Indah)
+     * - Indeks 1, 3, 5... (Ganjil) = Cowok (Julius, Wilson)
+     */
+    public int calculateTotal(int n, int[] values, String groupCode) {
+        int total = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (groupCode.equalsIgnoreCase("Cewek")) {
+                // Jika input "Cewek", ambil nilai pada posisi urutan ganjil (indeks genap)
+                if (i % 2 == 0) {
+                    total += values[i];
+                }
+            } else if (groupCode.equalsIgnoreCase("Cowok")) {
+                // Jika input "Cowok", ambil nilai pada posisi urutan genap (indeks ganjil)
+                if (i % 2 != 0) {
+                    total += values[i];
+                }
+            }
+        }
+
+        return total;
+    }
+}
+
+3. oke sekarang kirim ulang codenya
+
+4. Input:
+
+Jumlah total data (N).
+Deret nilai (n1, n2, …, n).
+Kode kelompok siswa

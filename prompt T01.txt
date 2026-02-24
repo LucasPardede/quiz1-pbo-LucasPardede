@@ -1,0 +1,143 @@
+LUCAS PARDEDE - 12S24015 - SISTEM INFORMASI
+
+CHATGPT
+
+1.buatlah kode program java dengan nama Driver1.java dari soal T01 berikut dimana ada juga file solution.java
+
+2. C:\Users\ASUS\OneDrive\문서\GitHub\quiz1-pbo-LucasPardede>javac src/model/*.java src/driver/*.java -d bin
+src\model\solution.java:3: error: class Solution is public, should be declared in a file named Solution.java
+public class Solution {
+       ^
+1 error
+
+C:\Users\ASUS\OneDrive\문서\GitHub\quiz1-pbo-LucasPardede>
+
+
+berikut errornya
+
+3. C:\Users\ASUS\OneDrive\문서\GitHub\quiz1-pbo-LucasPardede>javac src/model/*.java src/driver/*.java -d bin
+src\driver\Driver1.java:6: error: cannot find symbol
+        Solution solusi = new Solution();
+        ^
+  symbol:   class Solution
+  location: class Driver1
+src\driver\Driver1.java:6: error: cannot find symbol
+        Solution solusi = new Solution();
+                              ^
+  symbol:   class Solution
+  location: class Driver1
+2 errors
+
+C:\Users\ASUS\OneDrive\문서\GitHub\quiz1-pbo-LucasPardede>
+
+4. error: cannot find symbol
+import model.Solution;
+            ^
+  symbol:   class Solution
+  location: package model
+src\driver\Driver1.java:9: error: cannot find symbol
+        Solution solusi = new Solution();
+        ^
+  symbol:   class Solution
+  location: class Driver1
+src\driver\Driver1.java:9: error: cannot find symbol
+        Solution solusi = new Solution();
+                              ^
+  symbol:   class Solution
+  location: class Driver1
+3 errors
+
+
+5. ini code di Driver1.java
+package driver; 
+
+import java.util.Scanner;
+import model.Solution;
+
+public class Driver1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Solution solusi = new Solution();
+
+        while (true) {
+            String kode = input.nextLine();
+
+            if (kode.equals("END")) {
+                break;
+            }
+
+            int porsi = Integer.parseInt(input.nextLine());
+
+            solusi.tambahPesanan(kode, porsi);
+        }
+
+        solusi.cetakStruk();
+        input.close();
+    }
+}
+
+
+ini code di Solution.java
+package model;
+
+import java.util.ArrayList;
+
+
+public class solution {
+
+    private ArrayList<String> listMenu = new ArrayList<>();
+    private ArrayList<Integer> listHarga = new ArrayList<>();
+    private ArrayList<Integer> listPorsi = new ArrayList<>();
+    private int total = 0;
+
+    public void tambahPesanan(String kode, int porsi) {
+        String namaMenu = "";
+        int harga = 0;
+
+        switch (kode) {
+            case "NGS":
+                namaMenu = "Nasi Goreng Spesial";
+                harga = 25000;
+                break;
+            case "AP":
+                namaMenu = "Ayam Penyet";
+                harga = 20000;
+                break;
+            case "GG":
+                namaMenu = "Gado-Gado";
+                harga = 15000;
+                break;
+            default:
+                System.out.println("Kode tidak valid");
+                return;
+        }
+
+        listMenu.add(namaMenu);
+        listHarga.add(harga);
+        listPorsi.add(porsi);
+
+        total += harga * porsi;
+    }
+
+    public void cetakStruk() {
+        System.out.println("===== STRUK PEMBELIAN =====");
+
+        for (int i = 0; i < listMenu.size(); i++) {
+            System.out.println(listMenu.get(i) + " x" + listPorsi.get(i) +
+                    " = " + (listHarga.get(i) * listPorsi.get(i)));
+        }
+
+        System.out.println("----------------------------");
+        System.out.println("Total : " + total);
+
+        if (total >= 200000) {
+            System.out.println("Selamat! Anda mendapatkan Kupon Kuning");
+        } else if (total >= 100000) {
+            System.out.println("Selamat! Anda mendapatkan Kupon Biru");
+        } else {
+            System.out.println("Belum mendapatkan kupon");
+        }
+    }
+}
+
+
