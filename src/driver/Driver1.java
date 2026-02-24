@@ -1,9 +1,6 @@
 package driver;
 
 import java.util.Scanner;
-package driver;
-
-import java.util.Scanner;
 import model.Solution;
 
 public class Driver1 {

@@ -1,4 +1,7 @@
+package driver;
+
 import java.util.Scanner;
+import model.Solution3;
 
 public class Driver3 {
     public static void main(String[] args) {
